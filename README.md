@@ -1,8 +1,46 @@
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-## Getting Started
+## Setting Up the Flask App
 
-First, run the development server:
+To set up the Flask app, you need to create a virtual environment and install the required dependencies. Follow these steps:
+
+1. Navigate to the `flask-app` directory:
+
+```bash
+cd flask-app
+```
+
+2. Create a virtual environment
+```bash
+python3 -m venv .venv # Mac
+python -m venv .venv  # Windows
+```
+
+3. Activate the virtual environment
+```bash
+source .venv/bin/activate  # Mac
+.venv/Scripts/activate     # Windows
+```
+
+4. Install the required dependencies
+```bash
+pip install -r requirements.txt
+```
+
+5. Start the Flask server
+```bash
+flask run
+```
+
+
+## Getting Started with Next.js
+
+First, run 
+```bash
+npm i
+```
+
+Then, run the development server in one terminal:
 
 ```bash
 npm run dev
@@ -16,21 +54,18 @@ bun dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Your task
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+1. Modify ```src/app/page.tsx```
+- You will need to create an input field that accepts any string
+- Then create a submit button when pressed will send an api call to ```/api/length/route.ts```
 
-## Learn More
+2. Modify ```src/flask-app/app.py```
+- If you're confident in your abilities, create the /api/length route
+- Otherwise create the test route first
 
-To learn more about Next.js, take a look at the following resources:
+3. Modify ```src/app/api/length/route.ts```
+- You will need to create a route that will send an api call to the flask app with the necessary parameters and add error handling
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+4. Displaying the information
+- Take the info from the api call and display it in a paragraph element saying "The length of your string is __"
